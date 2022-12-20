@@ -9,7 +9,7 @@
   <style>
     body {
       margin: 0;
-      background-color: rgba(0, 0, 0, 0.96);
+      background: rgba(0, 0, 0, 0.96);
       padding: 72px 56px;
       columns: 2;
       column-gap: 20px;
@@ -31,29 +31,14 @@
 
 <body>
 
-  <div class="card" data-path="assets/images/bread" data-total="39">
-    <img src="assets/images/bread/0.png" alt="bread">
-  </div>
-
   <div class="card" data-path="assets/images/burger" data-total="18">
     <img src="assets/images/burger/18.png" alt="burger">
   </div>
 
-  <div class="card" data-path="assets/images/cupcake" data-total="32">
-    <img src="assets/images/cupcake/0.png" alt="cupcake">
-  </div>
-
-  <div class="card" data-path="assets/images/egg" data-total="18">
-    <img src="assets/images/egg/0.png" alt="egg">
-  </div>
-
-  <div class="card" data-path="assets/images/pie" data-total="46">
-    <img src="assets/images/pie/46.png" alt="46">
-  </div>
 
   <script>
 
-    document.querySelectorAll('div.card').forEach((card, key) => {
+    document.querySelectorAll('div.card').forEach(card => {
 
       const { path, total } = card.dataset;
 
@@ -72,6 +57,7 @@
     });
 
   </script>
+
 </body>
 
 </html>
