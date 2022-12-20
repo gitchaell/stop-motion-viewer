@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Motion Viewer</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgba(0, 0, 0, 0.96);
+      padding: 72px 56px;
+      columns: 2;
+      column-gap: 20px;
+    }
+
+    div.card {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card" data-path="assets/images/bread" data-total="39">
+    <img src="assets/images/bread/0.png" alt="bread">
+  </div>
+
+  <div class="card" data-path="assets/images/burger" data-total="18">
+    <img src="assets/images/burger/18.png" alt="burger">
+  </div>
+
+  <div class="card" data-path="assets/images/cupcake" data-total="32">
+    <img src="assets/images/cupcake/0.png" alt="cupcake">
+  </div>
+
+  <div class="card" data-path="assets/images/egg" data-total="18">
+    <img src="assets/images/egg/0.png" alt="egg">
+  </div>
+
+  <div class="card" data-path="assets/images/pie" data-total="46">
+    <img src="assets/images/pie/46.png" alt="46">
+  </div>
+
+  <script>
+
+    document.querySelectorAll('div.card').forEach((card, key) => {
+
+      const { path, total } = card.dataset;
+
+      const image = card.querySelector('img');
+
+      card.addEventListener('mousemove', ({ target, clientX }) => {
+
+        const { left, width } = target.getBoundingClientRect();
+
+        const index = Math.round((clientX - left) * total / width);
+
+        image.src = `${path}/${index}.png`;
+
+      });
+
+    });
+
+  </script>
+</body>
+
+</html>
